@@ -41,12 +41,13 @@ function Square(props: SquareProps) {
 //     }
 // }
 
-// interface BoardProps {
-//     squares: SquareType[]
-//     xIsNext: boolean
-// }
+interface BoardProps {
+    squares: SquareType[]
+    onClick: (i: number) => void;
+}
 
-class Board extends React.Component<any> {
+
+class Board extends React.Component<BoardProps> {
     // constructor(props: BoardProps) {
     //     super(props);
     //     this.state = {
@@ -166,7 +167,7 @@ class Game extends React.Component<{}, GameProps> {
         });
     }
 
-    jumpTo(step: any) {
+    jumpTo(step: number) {
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) ===0,
